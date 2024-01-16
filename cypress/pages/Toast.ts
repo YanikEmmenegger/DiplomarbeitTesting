@@ -3,7 +3,7 @@ class Toast {
         toast: () => cy.get(".toast", { timeout: 10000 })
     }
 
-    toastAction(text: string) {
+    toastMessage(text: string) {
         this.elements.toast().should('exist');
         this.elements.toast().contains(text);
         this.elements.toast().should('not.exist');

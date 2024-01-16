@@ -35,8 +35,33 @@ class OnboardingPageStepFive{
     checkGoalFatIsInvalid() {
         this.elements.inputGoalFat().should('have.class', 'border-red-500');
     }
-    getCalorieGoal() {
-        return this.elements.calorieGoal().invoke('text');
+    assertCalorieGoal(calorieGoal: string) {
+        return this.elements.calorieGoal().should('have.text', calorieGoal);
+    }
+    async getCarbs() {
+        return await this.getInputValues(this.elements.inputGoalCarbs());
+    }
+    async getProtein() {
+        return await this.getInputValues(this.elements.inputGoalProtein());
+    }
+    async getFat() {
+        return await this.getInputValues(this.elements.inputGoalFat());
+    }
+    assertGoalFat(goalFat: string) {
+        this.elements.inputGoalFat().should('have.value', goalFat);
+    }
+    assertGoalProtein(goalProtein: string) {
+        this.elements.inputGoalProtein().should('have.value', goalProtein);
+    }
+    assertGoalCarbs(goalCarbs: string) {
+        this.elements.inputGoalCarbs().should('have.value', goalCarbs);
+    }
+    getInputValues(element: Cypress.Chainable<JQuery<HTMLElement>>) {
+        return new Promise((resolve) => {
+            element.invoke('val').then((inputValue) => {
+                resolve(JSON.stringify(inputValue).replace(/['"]+/g, ''));
+            });
+        });
     }
 
 }

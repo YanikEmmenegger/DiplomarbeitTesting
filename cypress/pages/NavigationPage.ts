@@ -1,4 +1,4 @@
-class Navigation{
+class NavigationPage{
     elements = {
         buttonDashboard: () => cy.get("#nav-btn-dashboard").should('exist'),
         buttonDiary: () => cy.get("#nav-btn-diary").should('exist'),
@@ -24,4 +24,4 @@ class Navigation{
         this.elements.buttonAddFood().should('not.be.visible');
     }
 }
-export default new Navigation();
+export default new NavigationPage();

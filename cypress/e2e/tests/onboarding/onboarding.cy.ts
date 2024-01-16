@@ -19,7 +19,7 @@ describe('Onboarding', () => {
         cy.wait(1000);
     });
 
-    it('complete onboarding with happy path', () => {
+    it('complete onboarding with happy path',  () => {
         onboardingPageStepOne.setName("Mustermann");
         onboardingPageStepOne.setFirstName("Max");
         onboardingPageStepOne.setEmail("maxmustermann@gmail.com");
@@ -27,13 +27,13 @@ describe('Onboarding', () => {
         onboardingPageStepOne.clickMale();
 
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Daten gespeichert")
+        toast.toastMessage("Daten gespeichert")
 
         onboardingPageStepTwo.setWeight("80");
         onboardingPageStepTwo.setHeight("180");
 
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Grösse gespeichert")
+        toast.toastMessage("Grösse gespeichert")
 
         onboardingPageStepThree.clickActivityLevelOne();
 
@@ -44,7 +44,7 @@ describe('Onboarding', () => {
         onboardingPageNavigation.clickNext();
         //Complete onboarding
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Onboarding abgeschlossen")
+        toast.toastMessage("Onboarding abgeschlossen")
         cy.url().should('include', '/app');
     });
 
@@ -78,7 +78,7 @@ describe('Onboarding', () => {
 
         onboardingPageNavigation.buttonPreviousIsDisabled()
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Daten gespeichert")
+        toast.toastMessage("Daten gespeichert")
 
         onboardingPageStepTwo.setWeight("asdf");
         onboardingPageStepTwo.checkWeightIsInvalid();
@@ -90,7 +90,7 @@ describe('Onboarding', () => {
         onboardingPageStepTwo.checkHeightIsValid();
 
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Grösse gespeichert")
+        toast.toastMessage("Grösse gespeichert")
         onboardingPageNavigation.clickNext();
         onboardingPageNavigation.clickNext();
 
@@ -108,50 +108,50 @@ describe('Onboarding', () => {
         onboardingPageStepFive.checkGoalFatIsValid();
 
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Onboarding abgeschlossen")
+        toast.toastMessage("Onboarding abgeschlossen")
 
     });
     it('check toast if not all infos provided', () => {
         onboardingPageStepOne.setName("__NULL__");
         onboardingPageStepOne.checkNameIsInvalid();
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepOne.setName("Mustermann");
 
         onboardingPageStepOne.setFirstName("__NULL__");
         onboardingPageStepOne.checkFirstNameIsInvalid();
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepOne.setFirstName("Max");
 
         onboardingPageStepOne.setEmail("__NULL__");
         onboardingPageStepOne.checkEmailIsInvalid();
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepOne.setEmail("maxmustermann@gmail.com");
 
         onboardingPageStepOne.setBirthdate("__NULL__");
         onboardingPageStepOne.checkBirthdayIsInvalid();
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepOne.setBirthdate("26.08.1999");
 
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Daten gespeichert")
+        toast.toastMessage("Daten gespeichert")
 
         onboardingPageStepTwo.setWeight("__NULL__");
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepTwo.setWeight("80");
 
 
         onboardingPageStepTwo.setHeight("__NULL__");
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepTwo.setHeight("180");
 
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Grösse gespeichert")
+        toast.toastMessage("Grösse gespeichert")
 
         onboardingPageStepThree.clickActivityLevelOne();
         onboardingPageNavigation.clickNext();
@@ -162,23 +162,23 @@ describe('Onboarding', () => {
         onboardingPageStepFive.setGoalCarbs("__NULL__");
         onboardingPageStepFive.checkGoalCarbsIsInvalid();
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepFive.setGoalCarbs("328");
 
         onboardingPageStepFive.setGoalProtein("__NULL__");
         onboardingPageStepFive.checkGoalProteinIsInvalid();
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepFive.setGoalProtein("150");
 
         onboardingPageStepFive.setGoalFat("__NULL__");
         onboardingPageStepFive.checkGoalFatIsInvalid();
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Bitte fülle alle Felder aus")
+        toast.toastMessage("Bitte fülle alle Felder aus")
         onboardingPageStepFive.setGoalFat("100");
 
         onboardingPageNavigation.clickNext();
-        toast.toastAction("Onboarding abgeschlossen")
+        toast.toastMessage("Onboarding abgeschlossen")
     });
 
 });
