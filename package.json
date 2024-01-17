@@ -2,7 +2,7 @@
   "name": "caloriecompass",
   "version": "1.0.0",
   "devDependencies": {
-    "typescript": "*",
-    "cypress": "*"
+    "cypress": "^13.6.3",
+    "typescript": "*"
   }
 }

@@ -40,8 +40,6 @@ class OnboardingPageStepOne {
         this.elements.buttonFemale().click();
     }
 
-
-
     checkMaleIsSelected() {
         this.elements.buttonMale().should('have.class', 'gender-active');
     }
